@@ -6,10 +6,10 @@ class powerlog {
         if (y == 0)
             return 1;
         else if (y % 2 == 0) {
-            res = lp(x, y / 2) * lp(x, y / 2);
+            int res = lp(x, y / 2) * lp(x, y / 2);
             return res;
         } else {
-            res = lp(x, y / 2) * lp(x, y / 2);
+           int res = lp(x, y / 2) * lp(x, y / 2);
             return res * x;
         }
     }

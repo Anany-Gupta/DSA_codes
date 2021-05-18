@@ -1,4 +1,4 @@
-import java.io.*;
+
 import java.util.*;
 
 public class printArr {
@@ -12,6 +12,7 @@ public class printArr {
             a[i]=sc.nextInt();
         }
         displayArr(a,n-1);
+        sc.close();
     }
 
     public static void displayArr(int[] arr, int idx){

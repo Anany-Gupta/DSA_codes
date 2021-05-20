@@ -23,13 +23,6 @@ public class maze {
             return bList;
         }
         ArrayList<String> myPath = new ArrayList<>();//1
-        if (sc+1<=dc){
-            ArrayList<String> horizontalM = getMazePaths(sr, sc, dr, dc-1);//2
-            for(String path : horizontalM){
-                myPath.add(path+"h");
-            }
-
-        }
         if (dr>=sr+1){
             
             ArrayList<String> verticalM = getMazePaths(sr, sc, dr - 1, dc);//3
@@ -37,7 +30,14 @@ public class maze {
                 myPath.add(path+"v");//8
             }
         }
-        
+        if (sc+1<=dc){
+            ArrayList<String> horizontalM = getMazePaths(sr, sc, dr, dc-1);//2
+            for(String path : horizontalM){
+                myPath.add(path+"h");
+            }
+
+        }
+
         return myPath;
 
         }

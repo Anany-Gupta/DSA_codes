@@ -15,32 +15,44 @@ public class printJMaze {
         if (sr == dr && sc == dc) {
             System.out.println(ans);
             return;
-              }
-          
-      
-       
+        }
+
         if (sc + 1 <= dc) {// 2
-            for (int i = 1; i <= dc ; i++) {
-                getMazePaths(sr, sc + i, dr, dc,  ans+"h" + i );// 2
-
-            }
+        for (int i = 1; i <= dc ; i++) {
+        getMazePaths(sr, sc + i, dr, dc, ans+"h" + i );// 2
 
         }
-         if (dr >= sr + 1) {// 3
-            for (int i = 1; i < dr; i++) {
-                getMazePaths(sr + i, sc, dr, dc,  ans+"v" + i );// 3
-            }
+
         }
-       
+        if (dr >= sr + 1) {// 3
+        for (int i = 1; i < dr; i++) {
+        getMazePaths(sr + i, sc, dr, dc, ans+"v" + i );// 3
+        }
+        }
+
         if (dr >= sr + 1 && sc + 1 <= dc) { // 4
-            int d = Math.min(dr, dc); // number of diagonals
-            for (int i = 1; i < d; i++) {
-                getMazePaths(sr + i, sc + i, dr, dc, ans+"d" + i );// 2
-
-            }
+        int d = Math.min(dr, dc); // number of diagonals
+        for (int i = 1; i < d; i++) {
+        getMazePaths(sr + i, sc + i, dr, dc, ans+"d" + i );// 2
 
         }
+
+        }
+
+        
+        //Sir ki aprroach
+        // for (int i = 1; i + sc <= dc; i++) {
+        //     getMazePaths(sr, sc + i, dr, dc, ans + "h" + i);// 2
+
+        // }
+        // for (int i = 1; i + sr <= dr; i++) {
+        //     getMazePaths(sr + i, sc, dr, dc, ans + "h" + i);// 2
+
+        // }
+        // for (int i = 1; i + sr <= dr && i + sc <= dc; i++) {
+        //     getMazePaths(sr + i, sc + i, dr, dc, ans + "d" + i);// 2
+
+        // }
 
     }
-
 }

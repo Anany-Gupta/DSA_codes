@@ -15,13 +15,12 @@ public class printJMaze {
         if (sr == dr && sc == dc) {
             System.out.println(ans);
             return;
-        } else if (sc > dc || sr > dr) {
-            return;
-        }
+              }
+          
       
        
         if (sc + 1 <= dc) {// 2
-            for (int i = 1; i <= dc - sc; i++) {
+            for (int i = 1; i <= dc ; i++) {
                 getMazePaths(sr, sc + i, dr, dc,  ans+"h" + i );// 2
 
             }

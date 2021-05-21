@@ -31,7 +31,7 @@ public class printMaze {
             getMazePaths(sr+1, sc, dr , dc, ans + "v");// 3
 
         }
-
+        
     }
 
 }

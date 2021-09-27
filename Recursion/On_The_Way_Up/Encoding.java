@@ -5,40 +5,51 @@ public class Encoding {
 
         Scanner sc = new Scanner(System.in);
         String val = sc.next();
-        encode(val, "");
+        decode(val, "");
         sc.close();
     }
 
-    public static void encode(String str, String ans) {
-
+    public static void decode(String str, String ans) {
+        // Bases cases
         if (str.length() == 0) {
             System.out.println(ans);
+
         } else if (str.length() == 1) {
             char ch = str.charAt(0);
             if (ch == '0') {
                 return;
             }
-            int cv = ch - '0';
-            char code = (char) ('a' + cv - 1);
-            System.out.println(ans + code);
+
+            int cv = (ch - '0');
+
+            char decodedch = (char) ('a' - 1 + cv);
+            System.out.println(ans + decodedch);
 
         } else {
             char ch = str.charAt(0);
             String roq = str.substring(1);
             if (ch == '0') {
                 return;
-
             } else {
-                int cv = ch - '0';
-                char code = (char) ('a' + cv - 1);
-                encode(roq, ans + code);
+
+                int cv = (ch - '0');
+
+                char decodedch = (char) ('a' - 1 + cv);
+
+                decode(roq, ans + decodedch);
             }
-            String ch12=str.substring(0,2);
-            roq=str.substring(2);
-            int ch12v=Integer.parseInt((ch12));
-            if (ch12v<=26){
-                char code = (char) ('a' + ch12v - 1);
-                encode(roq, ans + code);
+
+            // 2 digit number
+
+            String ch2d = str.substring(0, 2);
+            roq = str.substring(2);
+
+            int cv = Integer.parseInt(ch2d);
+
+            if (cv <= 26&& cv>=10) {
+                char decodedch = (char) ('a' - 1 + cv);
+                decode(roq, ans + decodedch);
+
             }
         }
 

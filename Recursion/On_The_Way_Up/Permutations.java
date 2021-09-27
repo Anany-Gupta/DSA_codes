@@ -19,8 +19,8 @@ public class Permutations {
             StringBuilder copya=new StringBuilder(a);
 
             char ch=a.charAt(i);
-            String shortstr=copya.deleteCharAt(i).toString();
-            perm(shortstr,ans+ch);
+            //String roq=copya.deleteCharAt(i).toString();
+            perm( copya.deleteCharAt(i).toString(),ans+ch);
         }
     }
 }

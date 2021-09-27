@@ -1,3 +1,7 @@
 {
-    "jupyter.jupyterServerType": "remote"
+    "jupyter.jupyterServerType": "remote",
+    "java.project.sourcePaths": [
+        "Recursion/Test",
+        "Graphs"
+    ]
 }

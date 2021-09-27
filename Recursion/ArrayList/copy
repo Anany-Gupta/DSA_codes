@@ -1,63 +1,47 @@
-
 import java.util.*;
 
-public class maze {
+public class Main {
+    public static void main(String[] args) {
 
-    public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int m = sc.nextInt();
-        ArrayList<String> answer = getMazePaths(1, 1, n, m);
-        System.out.println(answer);
+        String val = sc.next();
+        encode(val, "");
         sc.close();
     }
 
-    // sr - source row
-    // sc - source column
-    // dr - destination row
-    // dc - destination column
-    public static ArrayList<String> getMazePaths(int sr, int sc, int dr, int dc) {
-        ArrayList<String> resultMove = new ArrayList<>();
-        if (dr == 1) {
-            if (dc >= 2) {
-                ArrayList<String> firstMove = new ArrayList<>();
-                firstMove.add("h");
-                return firstMove;
-            } else {
-                ArrayList<String> horizontalM = getMazePaths(sr, sc, dr, dc - 1);
-                for (String s : horizontalM)
+    public static void encode(String str, String ans) {
 
-                    resultMove.add(s + "h");
-                    return resultMove;
-
+        if (str.length() == 0) {
+            System.out.println(ans);
+        } else if (str.length() == 1) {
+            char ch = str.charAt(0);
+            if (ch == '0') {
+                return;
             }
+            int cv = ch - '0';
+            char code = (char) ('a' + cv - 1);
+            System.out.println(ans + code);
 
-        }
-        if (dc == 1) {
-            if (dr == 2) {
-                ArrayList<String> firstMove = new ArrayList<>();
-                firstMove.add("v");
-                return firstMove;
+        } else {
+            char ch = str.charAt(0);
+            String roq = str.substring(1);
+            if (ch == '0') {
+                return;
+
             } else {
-                ArrayList<String> verticalM = getMazePaths(sr, sc, dr - 1, dc);
-                for (String s : verticalM)
-                    resultMove.add(s + "v");
-                    return resultMove;
+                int cv = ch - '0';
+                char code = (char) ('a' + cv - 1);
+                encode(roq, ans + code);
+            }
+            String ch12=str.substring(0,2);
+            roq=str.substring(2);
+            int ch12v=Integer.parseInt((ch12));
+            if (ch12v<=26){
+                char code = (char) ('a' + ch12v - 1);
+                encode(roq, ans + code);
             }
         }
 
-        if (dc != 1 || dr != 1) {
-            ArrayList<String> horizontalM = getMazePaths(sr, sc, dr, dc - 1);
-            ArrayList<String> verticalM = getMazePaths(sr, sc, dr - 1, dc);
-
-            
-            for (String s : horizontalM)
-                resultMove.add(s + "h");
-            for (String s : verticalM)
-                resultMove.add(s + "v");
-            return resultMove;
-        }
-        return resultMove;
     }
 
 }
